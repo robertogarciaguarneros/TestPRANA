@@ -10,12 +10,22 @@ public class ComplejosController : ControllerBase
     private readonly ILogger<ComplejosController> _logger;
     private NpgsqlConnection _connection_DBSys;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ComplejosController"/> class.
+    /// </summary>
+    /// <param name="logger">The logger instance.</param>
     public ComplejosController(ILogger<ComplejosController> logger)
     {
         _logger = logger;
         _connection_DBSys = new NpgsqlConnection(Environment.GetEnvironmentVariable("DBConn"));
     }
 
+    /// <summary>
+    /// Handles the HTTP GET request to the "api/Complejos/GetComplejos" endpoint.
+    /// Retrieves data from a PostgreSQL database using a stored procedure.
+    /// Returns the retrieved data as a JSON response.
+    /// </summary>
+    /// <returns>The JSON response containing the complejos data.</returns>
     [HttpGet("GetComplejos")]
     public IActionResult GetComplejos()
     {
@@ -47,5 +57,4 @@ public class ComplejosController : ControllerBase
             return BadRequest($"Error al consultar complejos: {ex.Message}");
         }
     }
-
 }

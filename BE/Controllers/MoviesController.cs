@@ -5,32 +5,22 @@ using Npgsql;
 namespace BE.Controllers;
 
 /// <summary>
-/// The <c>MoviesController</c> class is a controller in a C# ASP.NET Core application that handles HTTP requests related to movies. 
-/// It connects to a PostgreSQL database and performs various operations such as retrieving movies, retrieving movies by date, and retrieving movie details.
+/// The <c>MoviesController</c> class is a controller in a C# ASP.NET Core application that handles HTTP requests related to movies.
+/// It provides methods to retrieve movies based on the provided complex ID, date, and movie ID.
+/// The class also handles exceptions and logs error messages.
 /// </summary>
 /// <example>
 /// <code>
-/// // Create an instance of the MoviesController class
-/// var moviesController = new MoviesController(logger);
-///
-/// // Get movies by complex ID
-/// var result1 = moviesController.GetMovies(1);
-///
-/// // Get movies by complex ID and date
-/// var result2 = moviesController.GetMoviesFec(1, DateTime.Now);
-///
-/// // Get movie details by movie ID, complex ID, and date
-/// var result3 = moviesController.GetMovieDetail(1, 1, DateTime.Now);
+/// MoviesController moviesController = new MoviesController(logger);
+/// IActionResult result = moviesController.GetMovies(1);
 /// </code>
 /// </example>
 /// <remarks>
 /// Main functionalities:
-/// - Connects to a PostgreSQL database using the provided connection string
-/// - Retrieves movies from the database based on complex ID
-/// - Retrieves movies from the database based on complex ID and date
-/// - Retrieves movie details from the database based on movie ID, complex ID, and date
+/// - Retrieve movies based on the provided complex ID
+/// - Retrieve movies based on the provided complex ID and date
+/// - Retrieve the details of a movie based on the provided movie ID, complex ID, and date
 /// </remarks>
-/// <seealso cref="ControllerBase"/>
 [ApiController]
 [Route("api/[controller]")]
 public class MoviesController : ControllerBase
@@ -44,6 +34,11 @@ public class MoviesController : ControllerBase
         _connection_DBSys = new NpgsqlConnection(Environment.GetEnvironmentVariable("DBConn"));
     }
 
+    /// <summary>
+    /// Retrieves movies based on the provided complex ID.
+    /// </summary>
+    /// <param name="id_complejo">The complex ID.</param>
+    /// <returns>The movies associated with the complex ID in JSON format.</returns>
     [HttpGet("GetMovies")]
     public IActionResult GetMovies([Required] int id_complejo)
     {
@@ -76,6 +71,13 @@ public class MoviesController : ControllerBase
             return BadRequest($"Error al consultar peliculas del complejo {id_complejo}: {ex.Message}");
         }
     }
+
+    /// <summary>
+    /// Retrieves movies based on the provided complex ID and date.
+    /// </summary>
+    /// <param name="id_complejo">The complex ID.</param>
+    /// <param name="fec">The date.</param>
+    /// <returns>The movies associated with the complex ID and date in JSON format.</returns>
     [HttpGet("GetMoviesFec")]
     public IActionResult GetMoviesFec([Required] int id_complejo, [Required] DateTime fec)
     {
@@ -110,6 +112,13 @@ public class MoviesController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Retrieves the details of a movie based on the provided movie ID, complex ID, and date.
+    /// </summary>
+    /// <param name="id_movie">The movie ID.</param>
+    /// <param name="id_complejo">The complex ID.</param>
+    /// <param name="fec">The date.</param>
+    /// <returns>The details of the movie associated with the movie ID, complex ID, and date in JSON format.</returns>
     [HttpGet("GetMovieDetail")]
     public IActionResult GetMovieDetail([Required] int id_movie, [Required] int id_complejo, [Required] DateTime fec)
     {

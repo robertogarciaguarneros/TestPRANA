@@ -233,7 +233,7 @@ public class HomeController : Controller
                     rn++;
                 }
             }
-            int max_asets = rn_2;
+            int max_asets = rn_2 - objVals.Count;
             int min_asets = 1;
 
             if (objVals.Count == max_asets)

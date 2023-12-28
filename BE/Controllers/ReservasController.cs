@@ -6,6 +6,35 @@ using Npgsql;
 
 namespace BE.Controllers;
 
+/// <summary>
+/// The ReservasController class is a controller in a C# ASP.NET Core application that handles HTTP requests related to reservations.
+/// </summary>
+/// <remarks>
+/// It includes methods for retrieving reservations for a specific schedule and for making new reservations.
+/// </remarks>
+/// <example>
+/// <code>
+/// // Retrieve reservations for a specific schedule
+/// GET /api/Reservas/GetReservasHorario?id_horario=123
+///
+/// // Make new reservations
+/// POST /api/Reservas/ReservaHorario
+/// Request Body:
+/// {
+///   "reservas": [
+///     {
+///       "id_horario": 123,
+///       "asiento": "A1"
+///     },
+///     {
+///       "id_horario": 123,
+///       "asiento": "A2"
+///     }
+///   ]
+/// }
+/// </code>
+/// </example>
+/// <seealso cref="ControllerBase" />
 [ApiController]
 [Route("api/[controller]")]
 public class ReservasController : ControllerBase

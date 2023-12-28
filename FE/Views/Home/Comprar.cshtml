@@ -142,12 +142,14 @@ new MapsColorMapping{Value="Seleccionado", Color="#008000"}
         }
         args.fill = 'green';
         var seat = args.data.value;
-        if (selectedseats.includes(seat)) {
-            const index = selectedseats.indexOf(seat);
-            selectedseats.splice(index, 1);
-        }
-        else {
-            selectedseats.push(seat);
+        if (seat != "Pantalla") {
+            if (selectedseats.includes(seat)) {
+                const index = selectedseats.indexOf(seat);
+                selectedseats.splice(index, 1);
+            }
+            else {
+                selectedseats.push(seat);
+            }
         }
     };
 
