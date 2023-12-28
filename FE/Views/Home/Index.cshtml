@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Cartelera";
+}
+<div id="loader" class="lds-dual-ring hidden overlay"></div>
+<input type="hidden" id="hdnURLGetMovs" value="@Url.Action("GetMovies", "Home")" />
+<div class="row">
+    <div class="col-sm-5">
+        <div class="form-floating mb-3">
+            <select class="form-select" id="ddlComplejo" aria-required="true" placeholder="" aria-label="Cine">
+                @Html.Raw(ViewBag.Cines)
+            </select>
+            <label for="ddlComplejo">Selecciona el cine</label>
+        </div>
+    </div>
+    <div class="col-sm-5">
+        <div class="form-floating mb-3">
+            <input type="date" class="form-control" id="txtDate" placeholder="">
+            <label for="txtDate">Selecciona la fecha</label>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Buscar"
+            onclick="CargaInfo();">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+</div>
+
+<div class="row" id="resMovs">
+</div>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+
+    async function CargaInfo() {
+        $('#loader').removeClass('hidden');
+        var id_comp = $("#ddlComplejo").val();
+        var fec = $("#txtDate").val();
+
+        try {
+            if (id_comp && fec) {
+                $.ajax({
+                    type: "POST",
+                    url: document.getElementById('hdnURLGetMovs').value,
+                    data: {
+                        idcomplejo: id_comp,
+                        v_fec: fec
+                    },
+                    beforeSend: function () {
+                        $('#loader').removeClass('hidden');
+                    },
+                    success: function (chData) {
+                        document.getElementById('resMovs').innerHTML = chData;
+                    },
+                    timeout: 10000,
+                    "error": function (data) {
+                        $('#loader').addClass('hidden');
+                        console.log('Error al cargar peliculas');
+                        console.log(data);
+                    },
+                    complete: function () {
+                        $('#loader').addClass('hidden');
+                    },
+                });
+            }
+            else {
+                Swal.fire({
+                    text: "Selecciona un cine y fecha por favor",
+                    icon: "warning",
+                    buttonsStyling: false,
+                    confirmButtonText: "Ok",
+                    customClass: {
+                        confirmButton: "btn btn-primary",
+                    }
+                });
+            }
+        }
+        catch (error) {
+            console.log('Error general cargar peliculas ');
+            console.log(error);
+        }
+        $('#loader').addClass('hidden');
+    }
+
+</script>

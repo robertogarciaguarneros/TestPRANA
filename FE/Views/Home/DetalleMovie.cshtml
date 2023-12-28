@@ -1,0 +1,45 @@
+﻿@model MovieViewModel
+@{
+    ViewData["Title"] = "Detalle Pelicula";
+}
+<div id="loader" class="lds-dual-ring hidden overlay"></div>
+<div class="row text-center">
+    <div class="col-12">
+        <div class="card text-center">
+            <div class="card-header">
+                <h5 class="card-title">@Model.nombre</h5>
+            </div>
+            <div class="card-body">
+                <img src="@Model.url_foto" class="card-img-top" style="width: 50%; height:50%" alt="@Model.nombre">
+            </div>
+            <div class="card-body">
+                <p class="card-text">@Model.sinopsis</p>
+                <p class="card-text">Clasificación: @Model.clasificacion</p>
+                <p class="card-text">Director: @Model.director</p>
+                <p class="card-text">Duración: @Model.duracion minutos</p>
+                <p class="card-text">Actores:
+                    @foreach (var c in Model.actores)
+                    {
+                        @c.nombre <br />
+                    }
+                </p>
+
+            </div>
+            <div class="card-footer text-muted">
+                @if (@Model.horarios != null)
+                {
+                    @foreach (var c in Model.horarios)
+                    {
+                        <a href="@(Environment.GetEnvironmentVariable("pathpre"))Home/Comprar?id=@c.id&id_c=@c.id_sala&titulo=@Model.nombre"
+                            class="btn btn-outline-primary">@c.ini.ToShortTimeString() -
+                            @c.fin.ToShortTimeString()</a>
+                    }
+                }
+                else
+                {
+                    <h5>Sin horarios disponibles</h5>
+                }
+            </div>
+        </div>
+    </div>
+</div>

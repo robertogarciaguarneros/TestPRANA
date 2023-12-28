@@ -1,0 +1,27 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [0, 0],
+              [80, 0],
+              [80, 20],
+              [0, 20],
+              [0, 0]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "value": 0,
+        "fill": "white",
+        "name": "No existe un mapa disponible"
+      }
+    }
+  ]
+}

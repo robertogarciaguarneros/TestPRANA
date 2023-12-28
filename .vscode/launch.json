@@ -1,0 +1,58 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/BE/bin/Debug/net6.0/BE.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/BE",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "DBConn":"User ID=postgres;Password=SABxdf76.cc#aX;Host=dbsabinocc.c7iifjnggvhh.us-west-1.rds.amazonaws.com;Port=5432;Database=Prana;Pooling=true;Connection Lifetime=0;"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "WEB",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildweb",
+            "program": "${workspaceFolder}/FE/bin/Debug/net6.0/FE.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/FE",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "API_BE":"https://n4r3y4yhkb.execute-api.us-west-1.amazonaws.com/Prod/api/",
+                "pathpre":"/",
+                "SyncFusionLicence":"Mgo+DSMBMAY9C3t2VlhhQlJCfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn9Td0NhWXxfcXFTTmRV"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
+}
