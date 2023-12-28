@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 
 namespace BE.Controllers;
-
 [ApiController]
 [Route("api/[controller]")]
 public class ComplejosController : ControllerBase
@@ -25,6 +24,9 @@ public class ComplejosController : ControllerBase
     /// Retrieves data from a PostgreSQL database using a stored procedure.
     /// Returns the retrieved data as a JSON response.
     /// </summary>
+    /// <remarks>
+    /// Get complex info.
+    /// </remarks>
     /// <returns>The JSON response containing the complejos data.</returns>
     [HttpGet("GetComplejos")]
     public IActionResult GetComplejos()
