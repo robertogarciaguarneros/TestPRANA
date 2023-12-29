@@ -29,6 +29,12 @@ FE (FrontEnd)
 
 Se encuentra el script inicial en la carpeta ScriptsBD, con esta se puede generar la BD inicial necesaria para el funcionamiento de la plataforma, está creado para se ejecutado en una BD Postgres.
 
+## URLS de prueba
+
+BE ==> https://n4r3y4yhkb.execute-api.us-west-1.amazonaws.com/Prod/swagger/index.html
+
+FE ==> https://prf1rn4kgc.execute-api.us-west-1.amazonaws.com/Prod
+
 ## Authors
 
 - [@robertogarciaguarneros](https://www.github.com/robertogarciaguarneros)
