@@ -50,7 +50,7 @@ new MapsColorMapping{Value="Seleccionado", Color="#008000"}
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-2">
+                    <div class="col-sm-2">
                         <label for="txtNumBoletos" class="form-label">Selecciona la cantidad de boletos</label>
                         <div class="input-group mb-3">
                             <button type="button" id="btnMinus" class="btn btn-primary input-group-text"
@@ -65,22 +65,22 @@ new MapsColorMapping{Value="Seleccionado", Color="#008000"}
                             </button>
                         </div>
                     </div>
-                    <div class="col-2 text-center">
+                    <div class="col-sm-2 text-center">
                         <button type="button" id='clear-btn' class="btn btn-secondary">
                             <i class="fa-solid fa-delete-left"></i>
                             &nbsp;&nbsp;&nbsp;Limpiar selección
                         </button>
                     </div>
-                    <div class="col-2 text-center">
+                    <div class="col-sm-2 text-center">
                         <button type="button" class="btn btn-success" onclick="ConfirmarSeleccion();">
                             <i class="fa-regular fa-calendar-check"></i>
                             &nbsp;&nbsp;&nbsp;Confirmar selección
                         </button>
                     </div>
-                    <div class="col-6"></div>
+                    <div class="col-sm-6"></div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-sm-12">
                         <div style="border: 3px solid darkgray;width:100%;display:block;margin:auto;border-radius:5px">
                             <ejs-maps id="maps" load="window.onMapLoad" height="400" width="100%"
                                 itemSelection="window.itemSelection" projectionType="Equirectangular">
@@ -103,14 +103,14 @@ new MapsColorMapping{Value="Seleccionado", Color="#008000"}
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-sm-3">
                         <span class="badge rounded-pill" style="background-color: #00b7ff;">Disponible</span>
                         <span class="badge rounded-pill" style="background-color: #ffa500;">Reservado</span>
                         <span class="badge rounded-pill" style="background-color: #008000;">Seleccionado</span>
                     </div>
-                    <div class="col-3">
+                    <div class="col-sm-3">
                     </div>
-                    <div class="col-6">
+                    <div class="col-sm-6">
                     </div>
                 </div>
             </div>
