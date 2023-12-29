@@ -3,7 +3,7 @@
 
 Sistema que emula la venta de boletos, consta de una API y FrontEnd, está realizada con .NET Core 6 MVC y una BD Postgresql, está configurada para desplegarse en AWS Lambda.
 
-Para el frontend adicionalmente se usan JS, CSS y Syncfusion.
+Para el FrontEnd adicionalmente se usan JS, CSS y Syncfusion.
 
 ## Variables de entorno
 
