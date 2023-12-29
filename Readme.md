@@ -18,10 +18,15 @@ FE (FrontEnd)
 
 "API_BE":"https://localhost/"             (URL de la API que proporciona información)
 
-"pathpre":"/",                            (Path adicional en la ruta de la API, se utiliza por la configuración de AWS, en local basta con el símbolo "/")
+"pathpre":"/"                             (Path adicional en la ruta de la API, se utiliza por la configuración de AWS, en local basta con el símbolo "/")
 
 "SyncFusionLicence":"xxxxxxxxxxxxxxxxxxxxxxxxxx"   (Licencia de componente Synfusion)
 ```
+
+## Base de datos
+
+Se encuentra el script inicial en la carpeta ScriptsBD, con esta se puede generar la BD inicial necesaria para el funcionamiento de la plataforma, está creado para se ejecutado en una BD Postgres
+
 ## Authors
 
 - [@robertogarciaguarneros](https://www.github.com/robertogarciaguarneros)
