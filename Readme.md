@@ -1,7 +1,9 @@
 
 # Test Prana (Prueba de sistema de venta de boletos)
 
-Sistema que emula la venta de boletos, consta de una API y FrontEnd, está realizada con .NET Core 6 y una BD Postgresql, está configurada para desplegarse en AWS Lambda.
+Sistema que emula la venta de boletos, consta de una API y FrontEnd, está realizada con .NET Core 6 MVC y una BD Postgresql, está configurada para desplegarse en AWS Lambda.
+
+Para el frontend adicionalmente se usan JS, CSS y Syncfusion.
 
 ## Variables de entorno
 
@@ -25,7 +27,7 @@ FE (FrontEnd)
 
 ## Base de datos
 
-Se encuentra el script inicial en la carpeta ScriptsBD, con esta se puede generar la BD inicial necesaria para el funcionamiento de la plataforma, está creado para se ejecutado en una BD Postgres
+Se encuentra el script inicial en la carpeta ScriptsBD, con esta se puede generar la BD inicial necesaria para el funcionamiento de la plataforma, está creado para se ejecutado en una BD Postgres.
 
 ## Authors
 
