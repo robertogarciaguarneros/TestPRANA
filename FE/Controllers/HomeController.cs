@@ -234,12 +234,7 @@ public class HomeController : Controller
                 }
             }
             int max_asets = rn_2 - objVals.Count;
-            int min_asets = 1;
-
-            if (objVals.Count == max_asets)
-            {
-                min_asets = 0;
-            }
+            int min_asets = max_asets == 0 ? 0 : 1;
 
             if (resJS.EndsWith(","))
             {
