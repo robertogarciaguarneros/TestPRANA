@@ -22,7 +22,7 @@ FE (FrontEnd)
 
 "pathpre":"/"                             (Path adicional en la ruta de la API, se utiliza por la configuración de AWS, en local basta con el símbolo "/")
 
-"SyncFusionLicence":"xxxxxxxxxxxxxxxxxxxxxxxxxx"   (Licencia de componente Synfusion)
+"SyncFusionLicence":"xxxxxxxxxxxxxxxxxxxxxxxxxx"   (Licencia de componente Syncfusion)
 ```
 
 ## Base de datos
